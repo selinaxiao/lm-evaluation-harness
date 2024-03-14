@@ -410,3 +410,30 @@ def stderr_for_metric(metric, bootstrap_iters):
     stderr = {mean: mean_stderr, acc_all: acc_all_stderr}
 
     return stderr.get(metric, None)
+
+
+@register_metric(
+    metric="cross_val_metrics",
+    higher_is_better=True,
+    output_type="multiple_choice",
+    aggregation="mean",
+)
+def cross_val_fn(items):  # This is a passthrough function
+    return items
+
+
+# @register_aggregation("cross_val")
+# def cross_val(items):
+#     unzipped_list = list(zip(*items))
+#     golds = unzipped_list[0]
+#     preds = unzipped_list[1]
+
+    # # implement cross validation here
+    # split2metrics = {}
+    # for split in range(5):
+    #     # id2label = {d['instance_id']: d['label'] for d in dataset}
+    #     #     split2metrics[split] = {
+    #     #         'accuracy': np.mean([id2label[q] == preds[q] for q in query_ids]),
+    #     #         'n': len(query_ids)}
+
+    # return sklearn.metrics.matthews_corrcoef(golds, preds)
