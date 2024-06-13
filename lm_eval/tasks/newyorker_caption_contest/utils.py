@@ -2,8 +2,8 @@ import datasets
 import re
 import lm_eval.tasks.newyorker_caption_contest.process_query as process_query
 import lm_eval.tasks.newyorker_caption_contest.matching_prompts as matching_propts
-
-shot_record_path = "lm_eval\\tasks\\newyorker_caption_contest\shot_record.txt"
+import numpy as np
+import pandas as pd
 
 
 def preprocess(text):
@@ -17,10 +17,10 @@ def preprocess(text):
 
 def process_docs(dataset: datasets.Dataset) -> datasets.Dataset:
     def _process_doc(doc):
-        # ctx = doc["ctx_a"] + " " + doc["ctx_b"].capitalize()
         out_doc = {
             "query": process_query.format_chatgpt_input(doc),
-            "choices": [preprocess(caption) for caption in doc["caption_choices"]],
+            "choices_text": [preprocess(caption) for caption in doc["caption_choices"]],
+            "choices": ['A', 'B', 'C', 'D', 'E'],
             "gold": doc["label"],
         }
         return out_doc
@@ -56,3 +56,18 @@ def process_docs(dataset: datasets.Dataset) -> datasets.Dataset:
 #             print('clear')
 
 #     return promt
+
+    # def fixed_prompt_gen(n):
+    #     np.random.seed(n)
+
+    #     explanation = pd.read_csv('explanation_annotations_for_leaderboard - explanation_annotations.csv')
+    #     literal = pd.read_csv('explanation_annotations_for_leaderboard - literal_annotations.csv')
+
+    #     print(explanation)
+    #     print("\n")
+    #     print(literal)
+
+
+
+        
+

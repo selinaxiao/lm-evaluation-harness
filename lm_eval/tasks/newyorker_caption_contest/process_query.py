@@ -20,6 +20,8 @@ def format_chatgpt_input(d):
         ent = ent.split('#')[0]
         ent = ent.replace('&redirect=no', '')
         ent = ent.replace('https://en.wikipedia.org/?title=', '/wiki/')
+        # print("ent: ", ent)
+        # print("after split:", ent.split('/wiki/'))
         ent = ent.split('/wiki/')[1]
         ent = ent.replace('%27s', "'")
         ent = ent.replace('(disambiguation)', '')

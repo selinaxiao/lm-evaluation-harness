@@ -1,0 +1,91 @@
+{
+  "builder_name": "csv",
+  "citation": "",
+  "config_name": "default",
+  "dataset_name": "csv",
+  "dataset_size": 4608433,
+  "description": "",
+  "download_checksums": {
+    "/home/yx229/lm-evaluation-harness/lm_eval/tasks/newyorker_caption_contest/matching_test.csv": {
+      "num_bytes": 4521948,
+      "checksum": null
+    }
+  },
+  "download_size": 4521948,
+  "features": {
+    "image": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "contest_number": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "image_location": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "image_description": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "image_uncanny_description": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "entities": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "questions": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "caption_choices": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "from_description": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "label": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "n_tokens_label": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "instance_id": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 9130381,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 4608433,
+      "num_examples": 2691,
+      "dataset_name": "csv"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

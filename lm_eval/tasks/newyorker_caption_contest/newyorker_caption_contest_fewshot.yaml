@@ -1,6 +1,6 @@
 group:
   - multiple_choice
-task: newyorker_caption_contest
+task: newyorker_caption_contest_fewshot
 dataset_path: jmhessel/newyorker_caption_contest # the name of the dataset on the HF Hub.
 dataset_name: matching # the dataset configuration to use. Leave `null` if your dataset does not require a config to be passed. See https://huggingface.co/docs/datasets/load_hub#configurations for more info.
 dataset_kwargs: null # any extra keyword arguments that should be passed to the dataset constructor, e.g. `data_dir`.
