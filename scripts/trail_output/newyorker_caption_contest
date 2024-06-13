@@ -1,0 +1,120 @@
+!!@@##@@!! -- Example 0
+role: system
+You are CaptionContestGPT, an expert language model at understanding the famous New Yorker caption contest. You follow the contest each week, and understand what makes for a humorous caption for each cartoon. You are aware ofthe various theories of humor, and read/anaylze the caption contest entries and winners each week.
+
+Some things to remember:
+
+- You're well versed in the history of the New Yorker Caption contest, and the types of captions that are selected as finalists/winners vs. those that are not.
+- Provide the answer in the requested format. 
+~~~
+role: user
+I will describe a New Yorker cartoon to you. Then, I will give you 5 choices (labelled A-E) for captions. One of the captions was the winning caption for that cartoon, the other captions do not correspond to this cartoon. Your job is to find the correct match and respond with "Answer: X" where X is either A, B, C, D, or E.
+
+scene location: an office
+description: A bunch of people are having a meeting underneath a desk. Their supplies are still on the table.
+uncanny description: People have meetings facing each other and not under a table.
+entities: Job, Sneakers
+Choices:
+A: Alright, folks, it’s crunch time.
+B: When you don't want one, they're everywhere.
+C: My mother is coming to stay next week.
+D: Well, that explains our relentless hunt for tuna.
+E: We have a stalker.
+
+Which of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?
+~~~
+role: assistant 
+Answer:A
+ ~~~
+role: user
+Thanks! How about this one?
+
+scene location: sand
+description: A man is crawling through the desert. Another man is attempting to paddle a boat through the sand.
+uncanny description: A rowboat shouldn't be in the middle of the desert.
+entities: Rowing, Desert island
+Choices:
+A: I'm up here.
+B: Noah, trust me. Its over.
+C: She's my Seeing Eye doll.
+D: No one here seems to know Jack.
+E: I'm more of a pop psychologist.
+
+Which of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?
+~~~
+role: assistant 
+Answer:B
+ ~~~
+role: user
+Thanks! How about this one?
+
+scene location: the bedroom
+description: There is a married couple in bed in a bedroom which is actually a cubicle in a larger room. There are multiple cubicles attached to their cubicle in the background. The woman is reading a book and is talking to the man.
+uncanny description: It is unusual for a cubicle to be used as a bedroom.
+entities: Cubicle, Office
+Choices:
+A: The doctor said it might help me quit.
+B: She's my Seeing Eye doll.
+C: May I recommend the trout?
+D: They're not testing our intelligence. They're testing our marriage.
+E: We never get out anymore.
+
+Which of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?
+~~~
+role: assistant 
+Answer:E
+ ~~~
+role: user
+Thanks! How about this one?
+
+scene location: a bedroom
+description: A husband and wife are lying in a bed watching TV. They are accompanied by several men in suits, who are presumably lawyers.
+uncanny description: It's unusual that lawyers would be in bed with a couple, because normally they would only interact with a couple in, e.g., their offices.
+entities: Divorce, Lawyer, Television
+Choices:
+A: I've changed my mind. I love it.
+B: If it stays that way longer than four hours, you should call your doctor.
+C: So this is what it's like to be a Nielsen family.
+D: Quick, give them a casino.
+E: I have a request to see how the sausage is made.
+
+Which of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?
+~~~
+role: assistant 
+Answer:C
+ ~~~
+role: user
+Thanks! How about this one?
+
+scene location: an office room
+description: A dinosaur is talking to another dinosaur in an office. He is handing him some papers. An asteroid is approaching Earth outside.
+uncanny description: The dinosaurs are acting like business people and they have an office. Dinosaurs are not that intelligent.
+entities: Anthropomorphism, Lizard
+Choices:
+A: One last thing ...
+B: You're right. No underwear.
+C: Worse than a cold. It's a common cold.
+D: I take it you didn't come here for the atmosphere.
+E: It's the closest you'll get to Manhattan in your price range.
+
+Which of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?
+~~~
+role: assistant 
+Answer:A
+ ~~~
+role: user
+Thanks! How about this one?
+
+scene location: heaven
+description: Two angels are sitting on rocks on top of a cloud. One of them looks worried.
+uncanny description: It's a pretty standard depiction of heaven, so nothing is out of place.
+entities: Angel, Worry
+Choices:
+A: I was considering ordering the cheese board but that seems like a trap.
+B: I'll let go of the stick when you let go of the stick.
+C: Tasted kind of mediciney.
+D: Why did you think angels had wings?
+E: The gravy boat is docked at the wharf.
+
+Which of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?
+~~~

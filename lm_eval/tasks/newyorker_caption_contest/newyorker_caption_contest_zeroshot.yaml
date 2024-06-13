@@ -1,0 +1,40 @@
+task: newyorker_caption_contest_zeroshot
+dataset_path: csv
+dataset_path: selinax10010/matching # the name of the dataset on the HF Hub.
+dataset_name: null # the dataset configuration to use. Leave `null` if your dataset does not require a config to be passed. See https://huggingface.co/docs/datasets/load_hub#configurations for more info.
+dataset_kwargs: null # any extra keyword arguments that should be passed to the dataset constructor, e.g. `data_dir`.
+output_type: multiple_choice
+training_split: train #<split name of training set, or `null`>
+validation_split: validation #<split name of val. set, or `null`>
+test_split: test #<split name of test set, or `null`>
+process_docs: !function utils.process_docs
+description: "role: system\nYou are CaptionContestGPT, an expert language model at understanding \
+the famous New Yorker caption contest. You follow the contest each week, and \
+understand what makes for a humorous caption for each cartoon. You are aware of\
+the various theories of humor, and read/anaylze the caption contest entries and \
+winners each week.\n\nSome things to remember:\n\n- You're well versed in the \
+history of the New Yorker Caption contest, and the types of captions that are \
+selected as finalists/winners vs. those that are not.\n- Provide the answer in \
+the requested format. \n~~~\nrole: user\nI will describe a New Yorker cartoon \
+to you. Then, I will give you 5 choices (labelled A-E) for captions. One of the \
+captions was the winning caption for that cartoon, the other captions do not \
+correspond to this cartoon. Your job is to find the correct match and respond \
+with \"Answer: X\" where X is either A, B, C, D, or E.\n\n\n"
+doc_to_text: "{{query}}\nChoices:\nA: {{choices_text[0]}}\nB: {{choices_text[1]}}\nC: \
+{{choices_text[2]}}\nD: {{choices_text[3]}}\nE: {{choices_text[4]}}\n\nWhich of the 5 options \
+(A, B, C, D, or E) is the caption that truly corresponds to the cartoon?\n~~~"
+doc_to_target: "{{label}}"
+doc_to_choice: "{{choices}}"
+num_fewshot: 0
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+  - metric: mcc
+    aggregation: matthews_corrcoef
+    higher_is_better: true
+metadata:
+  version: 1.0

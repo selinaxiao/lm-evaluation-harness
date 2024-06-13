@@ -1,0 +1,197 @@
+task: newyorker_caption_contest_10_fewshot_fixed
+dataset_path: csv
+dataset_path: selinax10010/matching # the name of the dataset on the HF Hub.
+dataset_name: null # the dataset configuration to use. Leave `null` if your dataset does not require a config to be passed. See https://huggingface.co/docs/datasets/load_hub#configurations for more info.
+dataset_kwargs: null # any extra keyword arguments that should be passed to the dataset constructor, e.g. `data_dir`.
+output_type: multiple_choice
+training_split: train #<split name of training set, or `null`>
+validation_split: validation #<split name of val. set, or `null`>
+test_split: test #<split name of test set, or `null`>
+process_docs: !function utils.process_docs
+description: "role: system\nYou are CaptionContestGPT, an expert language model at understanding \
+the famous New Yorker caption contest. You follow the contest each week, and \
+understand what makes for a humorous caption for each cartoon. You are aware of\
+the various theories of humor, and read/anaylze the caption contest entries and \
+winners each week.\n\nSome things to remember:\n\n- You're well versed in the \
+history of the New Yorker Caption contest, and the types of captions that are \
+selected as finalists/winners vs. those that are not.\n- Provide the answer in \
+the requested format. \n~~~\nrole: user\nI will describe a New Yorker cartoon \
+to you. Then, I will give you 5 choices (labelled A-E) for captions. One of the \
+captions was the winning caption for that cartoon, the other captions do not \
+correspond to this cartoon. Your job is to find the correct match and respond \
+with \"Answer: X\" where X is either A, B, C, D, or E.\n\n\
+scene location: a meeting room\
+\ndescription: Two people and a dog are sitting around a table in a meeting \
+room that overlooks a city skyline. On the table is some paperwork --- the three \
+look to be in the process of some sort of negotiation. One of the men is dressed \
+informally, whereas one of the men is dressed in a suit. The man with the suit \
+looks to be on the same \"team\" as the dog, and the casually dressed man looks a \
+bit surprised.\
+\nuncanny description: It's unusual for a dog to be attending a \
+meeting with two people, and for a dog to have a lawyer-esque person helping them \
+do paperwork.\
+\nentities: Dog, Legal Aid, Negotiation\
+\nChoices:\nA: My Client is prepared to walk.\
+\nB: Do you mind? I'm trying to play the drums downstairs.\
+\nC: I'm detecting a beat.\
+\nD: I will give you no quarter.\
+\nE: Good news, your car troubles are over.\
+\n\nWhich of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?\n~~~\n\
+role: assistant\nAnswer:A\n~~~\nrole: user\nThanks! How about this one?\n\n\
+scene location: heaven \
+\ndescription: Two angels are playing pool in the clouds as god is looking on. \
+The pool balls are planets, and one of the angels is about to hit earth with the \
+cue. God isn't playing pool but looks like he's about to say something snarky. \
+\nuncanny description: Angels playing the worldly game of pool is a bit odd, but \
+even more strange is the fact that they are using planets (including earth) as \
+balls.\
+\nentities: Pool, Planet, Heaven\
+\nChoices:\
+\nA: Ideal for parties with no atmosphere.\
+\nB: On the count of three, we s-t-o-r-m the c-a-s-t-l e.\
+\nC: Shall I serve your husband first, madame?\
+\nD: Rack 'em up and I'll show you kids a trick shot called the big bang.\
+\nE: They'll never know what we used our tiny arms for.\
+\n\nWhich of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?\n~~~\n\
+role: assistant\nAnswer:D\n~~~\nrole: user\nThanks! How about this one?\n\n\
+scene location: an office \
+\ndescription: A person in a suit of armor is working at a desk in a stereotypical \
+office setting; the view out the window shows that this office is located in a city.\
+ The person in the suit of armor is looking up from their paperwork/computer to look \
+ at a woman dressed in usual office attire who seems to be visiting the person in \
+ the suit of armor at their cubicle. This person's cubicle also has a picture of a \
+ medieval castle on the wall. \
+\nuncanny description: It's unusual for a person wearing a suit of armor to be \
+working in this typical office setting: not only is this temporarily out of place \
+because suits of armor are not associated with modern office settings like this \
+one (e.g., with computers), but also, it's not clear what function wearing this \
+armor would serve in this setting. \
+\nentities: Knight, Office\
+\nChoices:\nA: He comes so quickly when he's summoned.\
+\nB: Do you mind if I bounce something off you?\
+\nC: You clanked?\
+\nD: We usually don't deliver above Eighty-second Street.\
+\nE: He hasn't proposed yet, but he did give me a written estimate.\
+\n\nWhich of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?\n~~~\n\
+role: assistant\nAnswer:C\n~~~\nrole: user\nThanks! How about this one?\n\n\
+scene location: a laundry room \
+\ndescription: A man wearing a suit is unrealistically flattened against an ironing \
+board. He is holding an iron as if he ironed himself to the board. His head his \
+hanging off the side, and he looks at a woman wearing pajamas/slippers and a cat. \
+In the background are a washer and dryer.\
+\nuncanny description: The man being flattened on the ironing board is unusual --- this sort of fantastical occurrence might happen due to whimsical ironing mistake.\
+\nentities: Ironing, Physical comedy, Laundry room\
+\nChoices:\nA: So where do you see yourselves three days from now?\
+\nB: I'll fold.\
+\nC: You wouldn't understand. I need people to like me.\
+\nD: The hardest part was teaching him to use the hedge trimmers.\
+\nE: What did you expect a financial wizard to look like?\
+\n\nWhich of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?\n~~~\n\
+role: assistant\nAnswer:B\n~~~\nrole: user\nThanks! How about this one?\n\n\
+scene location: a car dealership \
+\ndescription: Two people, most likely a car salesman and a potential buyer, are \
+walking through a car lot. They are looking at a toy car, which looks like a cozy \
+coupe, a popular type of toy car for children. The salesman is holding a clipboard \
+and saying something about the toy car on the lot.\
+\nuncanny description: It's unusual for a car salesman to be selling a toy car \
+on a \"normal\" car lot like this one. It's also unusual that a potential buyer \
+would not be buying a \"normal\" car.\
+\nentities: Cozy Coupe, Car dealership\
+\nChoices:\nA: Yeah, and you never took a pen home from the office?\
+\nB: Leave my mother out of this.\
+\nC: My other car is a teacup.\
+\nD: Everyone's landing on the green but you.\
+\nE: O.K., I'll grab some crayons and get started on the paperwork.\
+\n\nWhich of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?\n~~~\n\
+role: assistant\nAnswer:E\n~~~\nrole: user\nThanks! How about this one?\n\n
+scene location: a living room\
+\ndescription: Two people, perhaps a romantic couple, are sitting on a couch \
+talking with each-other. Around them, a team of 5 metal detectorists are hard at \
+work, apparently looking for something around the couch.\
+\nuncanny description: The metal detectorists (i.e., people using metal detectors) \
+searching for something unknown in the living room is odd.\
+\nentities: Metal detector, Couch\
+\nChoices:\nA: You looked under the cushions, right?\
+\nB: Just pretend to give them your wallet.\
+\nC: Well, of course I'm being defensive.\
+\nD: They're not looking for a way out. They're looking for meaning.\
+\nE: I told you I've been juggling a lot lately.\
+\n\nWhich of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?\n~~~\n\
+role: assistant\nAnswer:A\n~~~\nrole: user\nThanks! How about this one?\n\n\
+scene location: a jungle floor\
+\ndescription: Two snakes are talking on the floor of a jungle or forest area. One \
+of the snakes seems to have just eaten a much larger animal, which could be a cow \
+or a pig, as evidenced by the body of the snake widely expanding to the shape of \
+that animal, and the tail coming out of its mouth.\
+\nuncanny description: It's unusual for a snake to eat that big of an animal to \
+the point that you can still see the full outline of the other animal in its \
+body/the tail coming out of its mouth. While snakes often eat big prey, this \
+takes it to an extreme, and the other non-eating snake looks to have something \
+to say about the situation.\
+\nentities: Snake, Cranial kinesis\
+\nChoices:\nA: At least you get to travel.\
+\nB: I hope it pairs well with whatever you dragged in.\
+\nC: You have something in your teeth.\
+\nD: Now, if you'll just yank away the tablecloth.\
+\nE: I hope you've come to change the water.\
+\n\nWhich of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?\n~~~\n\
+role: assistant\nAnswer:C\n~~~\nrole: user\nThanks! How about this one?\n\n\
+scene location: a beach \
+\ndescription:Two whales are relaxing, lying on a beach beyond the outskirts of a \
+city. One whale is enjoying a tropical drink/cocktail. The other is lying on its \
+back tanning using a sun reflector. \
+\nuncanny description: While whales are associated with the ocean, they live \
+underwater, so it's funny to see them relaxing on the beach doing stereotypical \
+activities that humans might do on a beach vacation, instead of swimming in the \
+water away from shore like a typical whale. \
+\nentities: Seaside resort, Vacation, Wahle\
+\nChoices:\nA: Why don't you ever leave the house?\
+\nB: These should help me approach your father on his own level.\
+\nC: You can take my soul, but not before I take your queen.\
+\nD: And you wanted to go to the mountains.\
+\nE: Stop asking for the moon.\
+\n\nWhich of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?\n~~~\n\
+role: assistant\nAnswer:D\n~~~\nrole: user\nThanks! How about this one?\n\n\
+scene location: a tree top\
+\ndescription: Three bald eagles are sitting in a tree. One of the birds has an \
+elvis-esque hair-do, as if it were wearing a wig, or undertook successful hair \
+regrowth therapy, etc., as the other two eagles look on. One of the onlooking \
+birds looks insecure, as the second onlooker says something to it.\
+\nuncanny description: It's unusual for a bald eagle to have a human-like hair-do \
+not only because birds don't have this type of hair, but also specifically because \
+these are bald eagles (being named for their bald-looking heads).\
+\nentities: Bald eagle, Management of hair loss\
+\nChoices:\nA: Will you be having the rabbit or the dove?\
+\nB: You shoulda heard the mockingbirds this morning.\
+\nC: Will I see you again?\
+\nD: Go ahead, ask him anything. He's a voracious reader.\
+\nE: Apparently, I was mistaken. He's not in over his head.\
+\n\nWhich of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?\n~~~\n\
+role: assistant\nAnswer:B\n~~~\nrole: user\nThanks! How about this one?\n\n\
+scene location: space\
+\ndescription: Two spacecraft, each holding two stereotypical grey aliens, cross \
+paths in space as the passengers of these crafts exchange looks. One of the spacecraft \
+is a typical flying saucer, the other is an RV.\
+\nuncanny description: It's not only unusual for an RV to be a spacecraft, but \
+it's unusual for two of the aliens to be riding in one --- why wouldn't they be \
+using the more modern/advanced-looking flying saucer like the other one?\
+\nentities: Undefined flying object, Motorhome\
+\nChoices:\nA: So, tell me, do you get steamed easily?\
+\nB: Am I catching you at a bad time?\
+\nC: I'm on my landline.\
+\nD: Or we could get a burglar alarm.\
+\nE: We thought we'd try a flying object they could identify.\
+\n\nWhich of the 5 options (A, B, C, D, or E) is the caption that truly corresponds to the cartoon?\n~~~\n\
+role: assistant\nAnswer:E\n~~~\nrole: user\nThanks! How about this one?\n\n\n"
+doc_to_text: "{{query}}\nChoices:\nA: {{choices[0]}}\nB: {{choices[1]}}\nC: \
+{{choices[2]}}\nD: {{choices[3]}}\nE: {{choices[4]}}\n\nWhich of the 5 options \
+(A, B, C, D, or E) is the caption that truly corresponds to the cartoon?\n~~~"
+doc_to_target: "{{label}}"
+doc_to_choice: "{{choices}}"
+num_fewshot: 0
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0
